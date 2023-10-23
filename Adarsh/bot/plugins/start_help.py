@@ -62,11 +62,11 @@ async def start(b, m):
                                      get_msg.id)
 
         msg_text = "**ᴛᴏᴜʀ ʟɪɴᴋ ɪs ɢᴇɴᴇʀᴀᴛᴇᴅ...⚡\n\n📧 ғɪʟᴇ ɴᴀᴍᴇ :-\n{}\n {}\n\n💌 ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ :- {}\n\n♻️ ᴛʜɪs ʟɪɴᴋ ɪs ᴘᴇʀᴍᴀɴᴇɴᴛ ᴀɴᴅ ᴡᴏɴ'ᴛ ɢᴇᴛ ᴇxᴘɪʀᴇᴅ ♻️\n\n<b>❖ YouTube.com</b>**"
-        await m.reply_text(            
-            text=msg_text.format(file_name, file_size, stream_link),
-            
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("⚡ ᴅᴏᴡɴʟᴏᴀᴅ ɴᴏᴡ ⚡", url=stream_link)]])
-        )
+        await b.copy_message(
+            m.chat.id, Var.BIN_CHANNEL, int(usr_cmd),
+            caption=msg_text.format(file_name, file_size, stream_link),
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("⚡️ ᴅᴏᴡɴʟᴏᴀᴅ ɴᴏᴡ ⚡️", url=stream_link)]])
+      )
 
 
 @StreamBot.on_message(filters.command('help') & filters.private)
